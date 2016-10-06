@@ -165,7 +165,7 @@ open class PullToRefreshView: UIView {
 
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == observeKeyContentOffset {
-            srollViewDidScroll((change?[NSKeyValueChangeKey.newKey] as AnyObject).cgPointValue)
+            srollViewDidScroll((change?[NSKeyValueChangeKey.newKey] as? NSValue)?.cgPointValue)
         } else if keyPath == observeKeyFrame {
             setNeedsLayout()
         }
